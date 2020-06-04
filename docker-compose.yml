@@ -1,11 +1,14 @@
 version: '3.7'
 services:
   nginx:
-    image: nginx:alpine
+    image: healer/nginx:alpine
+    build:
+      context: ./
     volumes:
       - ./conf.d/:/etc/nginx/conf.d/
       - ./ssl/:/etc/nginx/ssl/
       - ./html/:/usr/share/nginx/html/
+      - /Users/healer/dev/eqxiu/:/Users/healer/dev/eqxiu/
     ports:
       - 80:80 
       - 443:443
